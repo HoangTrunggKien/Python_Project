@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <title>Nhập dữ liệu</title>
+</head>
+<body>
+  <h3 class="text-center">Thêm mới dữ liệu</h3>
+
+  <form class="form-contact" action="/addBook" method="post" enctype="multipart/form-data" style="margin: 10% 40%">
+    {% csrf_token %}
+    <label for="library">Thư Viện</label>
+    <select name="library" id="library" style="margin-left: 38px">
+      <option value="" class="text-center">----Chọn----</option>
+      {% for library in library_list %}
+        <option value={{library.library_id}}>{{library.name}}</option>
+      {% endfor %}
+    </select></br>
+
+    <label for="fullName">Tên Sách</label>
+    <input type="text" name="fullName"></br>
+
+    <label for="age">Năm Xuất Bản</label>
+    <input type="number" name="age"></br>
+
+    <label for="bookfile">Thêm Sách</label>
+    <input type="file" name="bookfile"></br>
+
+    <button class="btn btn-primary" type="submit">Thêm</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script> 
+    <title>Thư Viện</title>
+</head>
+<body>
+    <h2 class="text-center">VNCert</h2>
+    <table class="table table-bordered mt60; text-center" style="margin-top: 50px">
+        <thead class="bg-darkgray text-bold td">
+            <td>ID</td>
+            <td>Thư Viện</td>
+            <td>Xem</td>
+        </thead>
+
+        <tbody>
+            {% for library in library_list %}
+                <tr>
+                    <td>{{library.library_id}}</td>
+                    <td>{{library.name}}</td>
+                    <td><a href="/library/{{library.library_id}}">Chi tiết</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+
